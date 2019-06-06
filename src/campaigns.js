@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-// import Calendar from "react-calendar";
+import Calendar from "react-calendar";
 import img from './images/whatsapp.png'
 import img1 from './images/dollor.png'
+import Modal from 'react-responsive-modal'
 
 class Campaigns extends Component {
   constructor(props) {
@@ -45,17 +46,24 @@ class Campaigns extends Component {
         }
       ],
       date: new Date(),
-      show: false
+      show: false,
+      showModal: false
     };
   }
 
   onChange = date => this.setState({ date })
 
-//   onenCalender = () => {
-//         this.setState(prevState => ({
-//             show: !prevState.show 
-//           }));
-//   }
+  handlerModal = () => {
+    this.setState({
+        showModal: true
+    });
+  }
+
+  onenCalender = () => {
+        this.setState(prevState => ({
+            show: !prevState.show 
+          }));
+  }
 
   render() {
     const { campaignData } = this.state;
@@ -76,23 +84,26 @@ class Campaigns extends Component {
                   </thead>
                   <tbody>
                     {campaignData.map(el => (
-                      <tr key={el.id}>
+                      <tr onClick={() => this.handlerModal()} key={el.id}>
                         <td>{el.date}</td>
                         <td><img src={img} alt="" width="25"/>{el.campaign}</td>
                         <td><img className="dollor" src={img1} alt="" width="25"/>{el.view}</td>
                         <td>
-                            <span><i className="fa fa-calendar" /></span>
+                            <span onClick={() => this.onenCalender()}><i className="fa fa-calendar" /></span>
                           {el.actions}
-                          {/* {this.state.show ? (
+                          {this.state.show ? (
                             <Calendar
                             onChange={this.onChange}
                             value={this.state.date}
                           />
-                          ) : null } */}
+                          ) : null }
                         </td>
                       </tr>
                     ))}
                   </tbody>
+                  {this.state.showModal ? (
+                      <Modal />
+                  ) : null}
                 </table>
               </div>
             </div>
