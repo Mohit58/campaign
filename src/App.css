@@ -1,0 +1,41 @@
+.App h1 {
+  font-weight: 300;
+  text-align: center;
+  padding: 70px 0 70px;
+  background: #87ceeb14;
+}
+.App h1 b {
+  font-weight: 700;
+}
+.table-campaigns-container {
+  margin: 50px auto;
+}
+.table-campaigns-container table thead tr {
+  background: #e6e6e6;
+}
+.table-campaigns-container table thead tr td {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.table-campaigns-container table tbody tr td:last-child {
+  text-align: center;
+}
+.table-campaigns-container table tbody tr td:last-child span {
+  display: block;
+  text-align: center;
+}
+.table-campaigns-container table tbody tr td {
+  vertical-align: middle
+}
+.table-campaigns-container table tbody tr td img {
+  margin-right: 10px;
+}
+.table-campaigns-container table tbody tr td img.dollor {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.table-campaigns-container table tbody tr td:nth-child(3), .table-campaigns-container table thead tr td:nth-child(3) {
+  text-align: center;
+}
